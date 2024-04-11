@@ -3,14 +3,16 @@ from timeit import default_timer as timer
 
 
 def main():
+
     time_list = []
     weight_list = []
-    n_list = [16, 32, 64, 128, 256, 512, 1024]
-    times_list = [200, 150, 100, 80, 60, 40, 20]
-    for i in range(len(n_list)):
+    n_list = [16, 32, 64, 128, 256, 512]
+    times_list = [100000, 10000, 1000, 100, 50, 20]
+
+    for j in range(1000):
         weights = 0
         tic = timer()
-        for j in range(times_list[i]):
+        for i in range(len(n_list)):
             graph = Graph(n_list[i])
             weight = graph.prim()
             weights += weight
